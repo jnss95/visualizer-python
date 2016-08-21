@@ -35,11 +35,11 @@ def animate(stream, MAX_y):
   y_L = y[::2]
   Y_L = np.fft.fft(y_L, nFFT)
 
-  test = np.abs(Y_L) 
+  test = np.abs(Y_L)
   peak_buffer.appendleft(min(255, int((test[0]/128)*255)))
   peak_buffer.appendleft(min(255, int((test[1]/128)*255)))
 
-  col1 = int(sum(peak_buffer / len(peak_buffer))
+  col1 = int(sum(peak_buffer / len(peak_buffer)))
 
   if (col1 > 90 and not trigger and (time.time() - lastChange) > 0.5 or (time.time() - lastChange > 5)):
     lastChange = time.time()
